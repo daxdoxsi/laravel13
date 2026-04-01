@@ -1,6 +1,14 @@
 <script setup lang="ts">
-import { Head, Link } from '@inertiajs/vue3';
 import { dashboard, login, register } from '@/routes';
+import { Form, Head, Link, usePage } from '@inertiajs/vue3';
+import { computed } from 'vue';
+import BookmarkController from '@/actions/App/Http/Controllers/Settings/BookmarkController';
+import DeleteBookmark from '@/components/DeleteBookmark.vue';
+import InputError from '@/components/InputError.vue';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { add } from '@/routes/anclas';
 
 withDefaults(
     defineProps<{
@@ -59,15 +67,78 @@ withDefaults(
                 >
                     <h1 class="mb-1 font-medium">Bookmarks</h1>
 
+                    <div class="flex flex-col space-y-6">
+                        <Form
+                            v-bind="BookmarkController.add.form()"
+                            class="space-y-6"
+                            v-slot="{ errors, processing, recentlySuccessful }"
+                        >
+                            <div class="grid gap-2">
+                                <Label for="name">Bookmark's Name</Label>
+                                <Input
+                                    id="name"
+                                    class="mt-1 block w-full"
+                                    name="name"
+                                    :default-value="bookmark.name"
+                                    required
+                                    autocomplete="name"
+                                    placeholder="Bookmark's name"
+                                />
+                                <InputError
+                                    class="mt-2"
+                                    :message="errors.name"
+                                />
+                            </div>
+
+                            <div class="grid gap-2">
+                                <Label for="url">URL address</Label>
+                                <Input
+                                    id="url"
+                                    type="text"
+                                    class="mt-1 block w-full"
+                                    name="url"
+                                    :default-value="bookmark.url"
+                                    required
+                                    placeholder="URL address"
+                                />
+                                <InputError
+                                    class="mt-2"
+                                    :message="errors.url"
+                                />
+                            </div>
+
+                            <div class="flex items-center gap-4">
+                                <Button
+                                    :disabled="processing"
+                                    data-test="add-bookmark-button"
+                                    >Save</Button
+                                >
+
+                                <Transition
+                                    enter-active-class="transition ease-in-out"
+                                    enter-from-class="opacity-0"
+                                    leave-active-class="transition ease-in-out"
+                                    leave-to-class="opacity-0"
+                                >
+                                    <p
+                                        v-show="recentlySuccessful"
+                                        class="text-sm text-neutral-600"
+                                    >
+                                        Saved.
+                                    </p>
+                                </Transition>
+                            </div>
+                        </Form>
+                    </div>
+
                     <ul class="flex gap-3 text-sm leading-normal">
                         <li>
-                            <a
-                                href="https://cloud.laravel.com"
-                                target="_blank"
+                            <Link
+                                href="/"
                                 class="inline-block rounded-sm border border-black bg-[#1b1b18] px-5 py-1.5 text-sm leading-normal text-white hover:border-black hover:bg-black dark:border-[#eeeeec] dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:border-white dark:hover:bg-white"
                             >
-                                Guardar Bookmark
-                            </a>
+                                Volver a página de inicio
+                            </Link>
                         </li>
                     </ul>
                 </div>
