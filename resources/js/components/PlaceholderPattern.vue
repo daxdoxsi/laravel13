@@ -14,8 +14,8 @@ const patternId = `pattern-${useId()}`;
                 :id="patternId"
                 x="0"
                 y="0"
-                width="8"
-                height="8"
+                width="6"
+                height="6"
                 patternUnits="userSpaceOnUse"
             >
                 <path d="M-1 5L5 -1M3 9L8.5 3.5" stroke-width="0.5"></path>
