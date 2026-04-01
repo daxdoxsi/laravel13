@@ -57,10 +57,11 @@ withDefaults(
                 <div
                     class="flex-1 rounded-br-lg rounded-bl-lg bg-white p-6 pb-12 text-[13px] leading-[20px] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] lg:rounded-tl-lg lg:rounded-br-none lg:p-20 dark:bg-[#161615] dark:text-[#EDEDEC] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]"
                 >
-                    <h1 class="mb-1 font-medium">Comencemos... </h1>
+                    <h1 class="mb-1 font-medium">Comencemos...</h1>
                     <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">
-                        Iniciamos con un formulario para el registro de bookmarks
-                        los cuales serán indexados para facilitar su localización
+                        Iniciamos con un formulario para el registro de
+                        bookmarks los cuales serán indexados para facilitar su
+                        localización
                     </p>
                     <ul class="mb-4 flex flex-col lg:mb-6">
                         <li
@@ -78,7 +79,8 @@ withDefaults(
                                 </span>
                             </span>
                             <span>
-                                Copiar la dirección URL desde la barra del navegador
+                                Copiar la dirección URL desde la barra del
+                                navegador
                                 <a
                                     href="https://laravel.com/docs"
                                     target="_blank"
@@ -144,13 +146,11 @@ withDefaults(
                     </ul>
                     <ul class="flex gap-3 text-sm leading-normal">
                         <li>
-                            <a
-                                href="https://cloud.laravel.com"
-                                target="_blank"
+                            <Link
+                                href="/anclas"
                                 class="inline-block rounded-sm border border-black bg-[#1b1b18] px-5 py-1.5 text-sm leading-normal text-white hover:border-black hover:bg-black dark:border-[#eeeeec] dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:border-white dark:hover:bg-white"
+                                >Vamos a los Bookmarks</Link
                             >
-                                Empecemos ya!
-                            </a>
                         </li>
                     </ul>
                 </div>

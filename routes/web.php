@@ -7,6 +7,10 @@ Route::inertia('/', 'Welcome', [
     'canRegister' => Features::enabled(Features::registration()),
 ])->name('home');
 
+Route::inertia('/anclas', 'Anclas', [
+    'canRegister' => Features::enabled(Features::registration()),
+])->name('anclas');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::inertia('dashboard', 'Dashboard')->name('dashboard');
 });
