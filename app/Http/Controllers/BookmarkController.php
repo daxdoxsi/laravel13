@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Settings\ProfileDeleteRequest;
 use App\Http\Requests\Settings\ProfileUpdateRequest;
+use App\Models\Bookmark;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,6 +20,14 @@ class BookmarkController extends Controller
      */
     public function add(Request $request): Response
     {
+        if ($request->isMethod('POST')) {
+
+            $bookmark = new Bookmark();
+            $bookmark->fill($request->all());
+            $bookmark->save();
+
+        }
+
         return Inertia::render('Anclas', []);
     }
 

@@ -2,7 +2,7 @@
 import { dashboard, login, register } from '@/routes';
 import { Form, Head, Link, usePage } from '@inertiajs/vue3';
 import { computed } from 'vue';
-import BookmarkController from '@/actions/App/Http/Controllers/Settings/BookmarkController';
+import BookmarkController from '@/actions/App/Http/Controllers/BookmarkController';
 import DeleteBookmark from '@/components/DeleteBookmark.vue';
 import InputError from '@/components/InputError.vue';
 import { Button } from '@/components/ui/button';
@@ -77,14 +77,14 @@ const bookmark = computed(() => page.props.bookmark);
                             v-slot="{ errors, processing, recentlySuccessful }"
                         >
                             <div class="grid gap-2">
-                                <Label for="name">Bookmark's Name</Label>
+                                <Label for="name">Description</Label>
                                 <Input
                                     id="name"
                                     class="mt-1 block w-full"
                                     name="name"
                                     required
                                     autocomplete="name"
-                                    placeholder="Bookmark's name"
+                                    placeholder="Bookmark's description"
                                 />
                                 <InputError
                                     class="mt-2"
@@ -112,7 +112,7 @@ const bookmark = computed(() => page.props.bookmark);
                                 <Button
                                     :disabled="processing"
                                     data-test="add-bookmark-button"
-                                    >Save</Button
+                                    >Add Bookmark</Button
                                 >
 
                                 <Transition
@@ -131,6 +131,8 @@ const bookmark = computed(() => page.props.bookmark);
                             </div>
                         </Form>
                     </div>
+
+                    <div class="p-5">Options:</div>
 
                     <ul class="flex gap-3 text-sm leading-normal">
                         <li>
