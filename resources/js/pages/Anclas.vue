@@ -18,6 +18,9 @@ withDefaults(
         canRegister: true,
     },
 );
+
+const page = usePage();
+const bookmark = computed(() => page.props.bookmark);
 </script>
 
 <template>
@@ -79,7 +82,6 @@ withDefaults(
                                     id="name"
                                     class="mt-1 block w-full"
                                     name="name"
-                                    :default-value="bookmark.name"
                                     required
                                     autocomplete="name"
                                     placeholder="Bookmark's name"
@@ -97,7 +99,6 @@ withDefaults(
                                     type="text"
                                     class="mt-1 block w-full"
                                     name="url"
-                                    :default-value="bookmark.url"
                                     required
                                     placeholder="URL address"
                                 />
