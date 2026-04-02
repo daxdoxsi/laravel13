@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\BookmarkController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
+
+Route::get('myhome', [HomeController::class, 'index'])->name('myhome');
 
 Route::inertia('/', 'Welcome', [
     'canRegister' => Features::enabled(Features::registration()),
