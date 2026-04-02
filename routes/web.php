@@ -2,8 +2,16 @@
 
 use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
+
+Route::get('Products', [ProductController::class, 'index'])->name('products.index');
+Route::get('Products/new', [ProductController::class, 'new'])->name('products.new');
+Route::post('Products/new', [ProductController::class, 'new'])->name('products.new');
+Route::get('Products/{id}/update', [ProductController::class, 'update'])->name('products.update');
+Route::put('Products/{id}/update', [ProductController::class, 'update'])->name('products.update');
+Route::delete('Products/{id}/delete', [ProductController::class, 'delete'])->name('products.delete');
 
 Route::get('myhome', [HomeController::class, 'index'])->name('myhome');
 
