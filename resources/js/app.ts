@@ -1,5 +1,7 @@
 import { createInertiaApp } from '@inertiajs/vue3';
 import { initializeTheme } from '@/composables/useAppearance';
+// import ProductLayout from '@/layouts/ProductLayout.vue';
+// import ProductLayout from '@/layouts/ProductLayout.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import AuthLayout from '@/layouts/AuthLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
@@ -11,6 +13,7 @@ createInertiaApp({
     layout: (name) => {
         switch (true) {
             case name.startsWith('Product'):
+                return null;
             case name === 'MyHome':
             case name === 'Welcome':
             case name === 'Anclas':

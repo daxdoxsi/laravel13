@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps({ product: Array });
+defineProps({ product: Object });
 </script>
 <template>
     <h1>Update Product {{ product.id }}</h1>

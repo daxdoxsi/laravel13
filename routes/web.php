@@ -6,7 +6,7 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 
-Route::get('Products', [ProductController::class, 'index'])->name('products.index');
+Route::get('Products', [ProductController::class, 'index'])->name('AppSidebar.vue');
 Route::get('Products/new', [ProductController::class, 'new'])->name('products.new');
 Route::post('Products/new', [ProductController::class, 'new'])->name('products.new');
 Route::get('Products/{id}/update', [ProductController::class, 'update'])->name('products.update');

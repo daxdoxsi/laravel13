@@ -1,5 +1,9 @@
 <template>
     <h1>New Product</h1>
-    <p>Insert Form of product here</p>
-    <p>Insert Form of product here</p>
+    <Form
+        v-bind="ProductController.add.form()"
+        class="space-y-6"
+        v-slot="{ errors, processing, recentlySuccessful }"
+    >
+    </Form>
 </template>
